@@ -39,7 +39,7 @@ public class Player
      {
           boolean wasMoved = true;
           
-          if(dir.equalsIgnoreCase("UP"))
+          if(dir.equalsIgnoreCase("UP") || dir.equalsIgnoreCase("U"))
           {
                y--;
                if (y < 0)
@@ -48,7 +48,7 @@ public class Player
                     wasMoved = false;
                }
           }
-          else if(dir.equalsIgnoreCase("DOWN"))
+          else if(dir.equalsIgnoreCase("DOWN") || dir.equalsIgnoreCase("D") )
           {
                y++;
                if (y > 8)
@@ -57,7 +57,7 @@ public class Player
                     wasMoved = false;
                }
           }
-          else if(dir.equalsIgnoreCase("LEFT"))
+          else if(dir.equalsIgnoreCase("LEFT") || dir.equalsIgnoreCase("L"))
           {
                x--;
                if (x < 0)
@@ -66,7 +66,7 @@ public class Player
                     wasMoved = false;
                }
           }
-          else if(dir.equalsIgnoreCase("RIGHT"))
+          else if(dir.equalsIgnoreCase("RIGHT")  || dir.equalsIgnoreCase("R"))
           {
                x++;
                if (x > 8)
