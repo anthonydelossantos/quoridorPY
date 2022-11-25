@@ -1,3 +1,10 @@
+/*
+ * ANTHONY DE LOS SANTOS
+ * LUIS SERGENT
+ * DANIEL DIAZ
+ * CHRISTOPHER JOGG
+ * RUBEN GUILLEN
+ */
 public class Player
 {
      public int x, y, n, x1_wall, y1_wall, walls,x2_wall, y2_wall,x3_wall,x4_wall;

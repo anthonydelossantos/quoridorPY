@@ -1,3 +1,10 @@
+/*
+ * ANTHONY DE LOS SANTOS
+ * LUIS SERGENT
+ * DANIEL DIAZ
+ * CHRISTOPHER JOGG
+ * RUBEN GUILLEN
+ */
 import javax.swing.*;
 
 
