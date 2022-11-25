@@ -1,6 +1,6 @@
 public class Player
 {
-     public int x, y, n;
+     public int x, y, n, x1_wall, y1_wall, x2_wall, y2_wall;
      public String name;
      
      public Player()
@@ -90,16 +90,27 @@ public class Player
      {
           return y;
      }
-     
-     public void setX(int newX)
+
+     public int getwallX1()
      {
-          x = newX;
+          return x1_wall;
      }
      
-     public void setY(int newY)
+     public int getwallY1()
      {
-          y = newY;
+          return y1_wall;
      }
+     public int getwallX2()
+     {
+          return x2_wall;
+     }
+     
+     public int getwallY2()
+     {
+          return y2_wall;
+     }
+     
+     
      
      
      public String toString()
