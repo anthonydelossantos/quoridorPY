@@ -1,11 +1,12 @@
 import javax.swing.*;
 
 
-public class Board extends JComponent
+public class Board 
 {     
      private String board;
+     variables var = new variables();
      
-     public Board(Player p1, Player p2)
+     public Board(Player pb, Player pr)
      {          
           board = new String();
           
@@ -16,37 +17,56 @@ public class Board extends JComponent
                for(int j = 0; j < 9; j++)
                {
 
-                    if(p1.getX() == j && p1.getY() == i)
+                    if(pb.getX() == j && pb.getY() == i)
                     {
                          board += "o.";
                         
                     }
-                    else if(p2.getX() == j && p2.getY() == i)
+                    else if(pr.getX() == j && pr.getY() == i)
                     {
                          board += "@.";
                          
                     }
-                    else if(p1.getwallX1() == j && p1.getwallY1() == i && p1.x1_wall > 0)  
+                    else if(pb.getwallX1() == j && pb.getwallY1() == i && pb.x1_wall > 0 && var.direction.equalsIgnoreCase("vertical") )
                     {
-                         board += "|";
-                         
+                         board += " |";
                     }
-                    else if(p1.getwallX2() == j && p1.getwallY2() == i && p1.x2_wall > 0)  
+                    else if(pb.getwallX2() == j && pb.getwallY2() == i && pb.x2_wall > 0 && var.direction.equalsIgnoreCase("vertical"))  
                     {
                          board += " |";
                          
                     }
+                    
                    
-                   else if(p2.getwallX1() == j && p1.getwallY1() == i && p2.x1_wall > 0)
+                    else if(pr.getwallX1() == j && pr.getwallY1() == i && pr.x1_wall > 0 && var.direction.equalsIgnoreCase("vertical"))
                     {
                          board += " |";
                     }
-                    else if(p2.getwallX2() == j && p2.getwallY2() == i && p2.x2_wall > 0)  
+                    else if(pr.getwallX2() == j && pr.getwallY2() == i && pr.x2_wall > 0 && var.direction.equalsIgnoreCase("vertical"))  
                     {
                          board += " |";
                          
                     }
-                   
+                    else if(pb.getwallX1() == j && pb.getwallX3() == i && pb.x1_wall > 0 )  
+                    {
+                         board += "__";
+                         
+                    }
+                    else if(pb.getwallX2() == j && pb.getwallX4() == i && pb.x1_wall > 0 )  
+                    {
+                         board += "__";
+                         
+                    }
+                    else if(pr.getwallX1() == j && pr.getwallX3() == i && pr.x1_wall > 0 )  
+                    {
+                         board += "__";
+                         
+                    }
+                    else if(pr.getwallX2() == j && pr.getwallX4() == i && pr.x1_wall > 0 )  
+                    {
+                         board += "__";
+                         
+                    }
                     
                     else
                          board += " .";
@@ -57,7 +77,7 @@ public class Board extends JComponent
           }//end for 
      }     
      
-     public String reDraw(Player p1, Player p2)
+     public String reDraw(Player pb, Player pr)
      {
           board = new String();
           
@@ -65,43 +85,60 @@ public class Board extends JComponent
           {               
                board += i+" .";
                
-               for(int j = 0; j < 8; j++)
+               for(int j = 0; j < 9; j++)
                {
-                    if (p1.getX() == p1.getwallX1() && p1.getY() == p1.getwallY1()) {
-                         
-                         
-                    }
+                    
                     // si el jugador se encuentra en una posicion x ,y este dibuja su respectivo simbolo
-                    if(p1.getX() == j && p1.getY() == i)
+                    if(pb.getX() == j && pb.getY() == i)
                     {
                          board += "o.";
                         
                     }
-                    else if(p2.getX() == j && p2.getY() == i)
+                    else if(pr.getX() == j && pr.getY() == i)
                     {
                          board += "@.";
                          
                     }
 
                     // si el valor de la posicion de un muro de cierto jugador estaa, este es dibujado
-                    else if(p1.getwallX1() == j && p1.getwallY1() == i && p1.x1_wall > 0)
+                    else if(pb.getwallX1() == j && pb.getwallY1() == i && pb.x1_wall > 0 && var.direction.equalsIgnoreCase("vertical") )
                     {
                          board += " |";
                     }
-                    else if(p1.getwallX2() == j && p1.getwallY2() == i && p1.x2_wall > 0)  
+                    else if(pb.getwallX2() == j && pb.getwallY2() == i && pb.x2_wall > 0 && var.direction.equalsIgnoreCase("vertical"))  
                     {
                          board += " |";
                          
                     }
                     
                    
-                    else if(p2.getwallX1() == j && p2.getwallY1() == i && p2.x1_wall > 0)
+                    else if(pr.getwallX1() == j && pr.getwallY1() == i && pr.x1_wall > 0 && var.direction.equalsIgnoreCase("vertical"))
                     {
                          board += " |";
                     }
-                    else if(p2.getwallX2() == j && p2.getwallY2() == i && p2.x2_wall > 0)  
+                    else if(pr.getwallX2() == j && pr.getwallY2() == i && pr.x2_wall > 0 && var.direction.equalsIgnoreCase("vertical"))  
                     {
                          board += " |";
+                         
+                    }
+                    else if(pb.getwallX1() == j && pb.getwallX3() == i && pb.x1_wall > 0 )  
+                    {
+                         board += "__";
+                         
+                    }
+                    else if(pb.getwallX2() == j && pb.getwallX4() == i && pb.x1_wall > 0 )  
+                    {
+                         board += "__";
+                         
+                    }
+                    else if(pr.getwallX1() == j && pr.getwallX3() == i && pr.x1_wall > 0 )  
+                    {
+                         board += "__";
+                         
+                    }
+                    else if(pr.getwallX2() == j && pr.getwallX4() == i && pr.x1_wall > 0 )  
+                    {
+                         board += "__";
                          
                     }
                     else

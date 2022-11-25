@@ -1,6 +1,6 @@
 public class Player
 {
-     public int x, y, n, x1_wall, y1_wall, walls,x2_wall, y2_wall;
+     public int x, y, n, x1_wall, y1_wall, walls,x2_wall, y2_wall,x3_wall,x4_wall;
      int[] P1wall_history = new int[20]; // historial de jugador 1 (muros)
      int[] P2wall_history = new int[20]; // historial de jugador 2 (muros)
      
@@ -110,6 +110,16 @@ public class Player
      {
           return x2_wall;
      }
+     public int getwallX3()
+     {
+          return x2_wall;
+     }
+     public int getwallX4()
+     {
+          return x2_wall;
+     }
+     
+     
      
      public int getwallY2()
      {
