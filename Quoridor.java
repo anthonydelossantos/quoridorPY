@@ -37,8 +37,8 @@ public class Quoridor
           ArrayList <String> history_p2 = new ArrayList<String>();
           
           //establece los dos jugadores , sus posiciones iniciales (x_pos, y_pos), el numero identificador (nb) y su nombre (nm)
-          Player p1 = new Player(4, 8, 1, "Player 1");
-          Player p2 = new Player(4, 0, 2, "Player 2");
+          Player p1 = new Player(4, 8, 1, "Player 1", 10);
+          Player p2 = new Player(4, 0, 2, "Player 2", 10);
           //INTRODUCE USUARIOS DENTRO DE ARRAY QUE FUNCIONARA PARA ITERAR EN EL
           players[0] = p1;
           players[1] = p2;
@@ -93,14 +93,37 @@ public class Quoridor
                          
                     //CONDICIONALES DE ACCION
                         if (accion.equalsIgnoreCase("M")) {
-                                   System.out.println("ENTER: (x1,y1)");
-                                   for (int j = 0; j < 2; j++) {
-                                        System.out.print("->");
-                                        wall_position[j] = in.nextInt();
+                                   if (currentPlayer.walls == 0 ) {
+                                        System.out.print("Ya utilizaste todos tus muros.");
+                                        moved = false;
+                                        
+                                   } else {
+                                        System.out.println("ENTER: (x1,y1)");
+                                        for (int j = 0; j < 2; j++) {
+                                             System.out.print("->");
+                                             wall_position[j] = in.nextInt();
+                                        }
+                                        currentPlayer.x1_wall = wall_position[0];
+                                        currentPlayer.y1_wall = wall_position[1];
+
+                                        if(currentPlayer.n == 1){
+                                             //currentPlayer.P1wall_history[wcount_history] =  currentPlayer.x1_wall;
+                                             //currentPlayer.P1wall_history[wcount_history+1] = currentPlayer.y1_wall;
+                                             currentPlayer.walls -=1;
+
+                                        }
+                                        else if (currentPlayer.n == 2) {
+                                        // currentPlayer.P2wall_history[wcount_history] =  currentPlayer.x1_wall;
+                                             //currentPlayer.P2wall_history[wcount_history+1] = currentPlayer.y1_wall;
+                                             currentPlayer.walls -=1;
+                                        }
+
+                                        //wcount_history+=1;
+                                        moved = true;
+
+                                        
                                    }
-                                   currentPlayer.x1_wall = wall_position[0];
-                                   currentPlayer.y1_wall = wall_position[1];
-                                   moved = true;
+                                   
                                    
                          }    
                                    

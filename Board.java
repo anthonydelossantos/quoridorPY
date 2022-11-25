@@ -29,7 +29,7 @@ public class Board extends JComponent
                          board += "|";
                     }
                    
-                   else if(p2.getwallX1() == j && p2.getwallY1() == i && p2.x1_wall > 0)
+                   else if(p2.getwallX1() == j && p1.getwallY1() == i && p2.x1_wall > 0)
                     {
                          board += " |";
                     }
