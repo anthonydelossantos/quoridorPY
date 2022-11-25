@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Quoridor
 {
-
+// historial
      static void getHistory(ArrayList <String> history1, ArrayList <String> history2) {
           System.out.println("Historial de movimientos");
                                         for (int i = 0; i < history1.size(); i++) {
@@ -52,6 +52,7 @@ public class Quoridor
           
           while(!isGameOver)
                 { 
+                   in.nextLine();
                     //GANADORES
 
                     if (p1.getY() == 0) {
@@ -78,6 +79,17 @@ public class Quoridor
                          //escogemos que queremos mover 
                          System.out.println("Que deseas mover?\nPeon: P || Muro: M");
                          accion = in.nextLine();
+
+
+                         /* 
+                         if (accion.equalsIgnoreCase("PICOTA")) {
+                              System.out.println("FELICIDADES GANASTE EL JUEGO!! Y nosotros ganamos una A+");
+                              break;
+                              
+                              
+                         } 
+                         */
+                         
                          
                     //CONDICIONALES DE ACCION
                         if (accion.equalsIgnoreCase("M")) {
@@ -92,21 +104,21 @@ public class Quoridor
                                    
                          }    
                                    
-                         if (accion.equalsIgnoreCase("P")) {
-                                   System.out.println("ENTER:|UP|+|DOWN|+|LEFT|+|RIGHT|");
+                         if (accion.equalsIgnoreCase("P")) { 
+                                   System.out.println("ENTER:|ARRIBA|+|ABAJO|+|IZQUIERDA|+|DERECHA|");
                                    input = in.nextLine();
-                                   moved = currentPlayer.movePiece(input);
+                                   moved = currentPlayer.moverPeon(input);
                               
                                    //para salir del juego
-                                   if(input.equalsIgnoreCase("QUIT") || input.equalsIgnoreCase("Q")){
+                                   if(input.equalsIgnoreCase("EXIT") || input.equalsIgnoreCase("E")){
                                         getHistory(history_p1,history_p2);
                                         break;
                                       }
                                    while (!moved ) {
                                         System.out.println("Error.");
-                                        System.out.println("ENTER:|UP|+|DOWN|+|LEFT|+|RIGHT|");
+                                        System.out.println("ENTER:|ARRIBA|+|ABAJO|+|IZQUIERDA|+|DERECHA|");
                                         input = in.nextLine();
-                                        moved = currentPlayer.movePiece(input);
+                                        moved = currentPlayer.moverPeon(input);
                                    }
 
                                    
@@ -114,7 +126,7 @@ public class Quoridor
 
 
                     //para salir del juego
-                         if(accion.equalsIgnoreCase("QUIT") || accion.equalsIgnoreCase("Q")){   
+                         if(accion.equalsIgnoreCase("EXIT") || accion.equalsIgnoreCase("E")){   
                              getHistory(history_p1,history_p2);
                               break;
                          }
@@ -131,6 +143,7 @@ public class Quoridor
                          
                     //VUELVE A DIBUJAR EL TABLERO
                          Qboard.reDraw(p1, p2);
+                         
             
                     
                          
@@ -139,19 +152,19 @@ public class Quoridor
                     //si el identificador de mi jugador actual es 1 le sumo uno mas 
                     //para que sea turno de dos , pero antes guardo su posicion actual en el array 
                          if (players[count].n == 1) {
-                              history_p2.add(currentplayer_history);
+                              history_p1.add(currentplayer_history);
                               count++;
 
                               
                          }              
                          else {
                               count--;
-                              history_p1.add(currentplayer_history);
+                              history_p2.add(currentplayer_history);
                          }
                          
                     
                     
-               
+                    
                     
                    
           } 

@@ -1,6 +1,9 @@
 public class Player
 {
-     public int x, y, n, x1_wall, y1_wall, x2_wall, y2_wall;
+     public int x, y, n, x1_wall, y1_wall;
+     int[] P1wall_history = new int[20]; // historial de jugador 1 (muros)
+     int[] P2wall_history = new int[20]; // historial de jugador 2 (muros)
+     
      public String name;
      
      public Player()
@@ -35,11 +38,11 @@ public class Player
           name = nm;
      }
      
-     public boolean movePiece(String dir)
+     public boolean moverPeon(String dir)
      {
           boolean wasMoved = true;
           
-          if(dir.equalsIgnoreCase("UP") || dir.equalsIgnoreCase("U"))
+          if(dir.equalsIgnoreCase("ARRIBA") || dir.equalsIgnoreCase("A"))
           {
                y--;
                if (y < 0)
@@ -48,7 +51,7 @@ public class Player
                     wasMoved = false;
                }
           }
-          else if(dir.equalsIgnoreCase("DOWN") || dir.equalsIgnoreCase("D") )
+          else if(dir.equalsIgnoreCase("ABAJO") || dir.equalsIgnoreCase("AB") )
           {
                y++;
                if (y > 8)
@@ -57,7 +60,7 @@ public class Player
                     wasMoved = false;
                }
           }
-          else if(dir.equalsIgnoreCase("LEFT") || dir.equalsIgnoreCase("L"))
+          else if(dir.equalsIgnoreCase("IZQUIERDA") || dir.equalsIgnoreCase("I"))
           {
                x--;
                if (x < 0)
@@ -66,7 +69,7 @@ public class Player
                     wasMoved = false;
                }
           }
-          else if(dir.equalsIgnoreCase("RIGHT")  || dir.equalsIgnoreCase("R"))
+          else if(dir.equalsIgnoreCase("DERECHA")  || dir.equalsIgnoreCase("D"))
           {
                x++;
                if (x > 8)
@@ -100,6 +103,7 @@ public class Player
      {
           return y1_wall;
      }
+     /* 
      public int getwallX2()
      {
           return x2_wall;
@@ -109,8 +113,7 @@ public class Player
      {
           return y2_wall;
      }
-     
-     
+     */
      
      
      public String toString()

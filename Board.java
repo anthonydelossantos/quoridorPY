@@ -15,6 +15,7 @@ public class Board extends JComponent
                
                for(int j = 0; j < 9; j++)
                {
+
                     if(p1.getX() == j && p1.getY() == i)
                     {
                          board += "o.";
@@ -23,12 +24,12 @@ public class Board extends JComponent
                     {
                          board += "x.";
                     }
-                    if(p1.getwallX1() == j && p1.getwallY1() == i && p1.x1_wall > 0)  
+                    else if(p1.getwallX1() == j && p1.getwallY1() == i && p1.x1_wall > 0)  
                     {
                          board += "|";
                     }
                    
-                    else if(p2.getwallX1() == j && p1.getwallY1() == i && p2.x2_wall > 0)
+                   else if(p2.getwallX1() == j && p2.getwallY1() == i && p2.x1_wall > 0)
                     {
                          board += " |";
                     }
@@ -53,6 +54,8 @@ public class Board extends JComponent
                
                for(int j = 0; j < 9; j++)
                {
+
+                    // si el jugador se encuentra en una posicion x ,y este dibuja su respectivo simbolo
                     if(p1.getX() == j && p1.getY() == i)
                     {
                          board += "o.";
@@ -61,12 +64,14 @@ public class Board extends JComponent
                     {
                          board += "x.";
                     }
-                    if(p1.getwallX1() == j && p1.getwallY1() == i && p1.x1_wall > 0)
+
+                    // si el valor de la posicion de un muro de cierto jugador estaa, este es dibujado
+                    else if(p1.getwallX1() == j && p1.getwallY1() == i && p1.x1_wall > 0)
                     {
                          board += " |";
                     }
                    
-                    else if(p2.getwallX1() == j && p1.getwallY1() == i && p2.x2_wall > 0)
+                    else if(p2.getwallX1() == j && p2.getwallY1() == i && p2.x1_wall > 0)
                     {
                          board += " |";
                     }
@@ -83,6 +88,6 @@ public class Board extends JComponent
      
      public String toString()
      {
-          return new String("  ___________________\n" + board);
+          return new String("  0 1 2 3 4 5 6 7 8 \n" + board);
      }
 }//Board class
