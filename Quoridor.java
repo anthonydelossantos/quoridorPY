@@ -37,8 +37,8 @@ public class Quoridor
           ArrayList <String> history_p2 = new ArrayList<String>();
           
           //establece los dos jugadores , sus posiciones iniciales (x_pos, y_pos), el numero identificador (nb) y su nombre (nm)
-          Player p1 = new Player(4, 8, 1, "Player 1", 10);
-          Player p2 = new Player(4, 0, 2, "Player 2", 10);
+          Player p1 = new Player(4, 8, 1, "PB", 10);
+          Player p2 = new Player(4, 0, 2, "PR", 10);
           //INTRODUCE USUARIOS DENTRO DE ARRAY QUE FUNCIONARA PARA ITERAR EN EL
           players[0] = p1;
           players[1] = p2;
@@ -77,18 +77,18 @@ public class Quoridor
                          currentPlayer = players[count];
                          System.out.println("Turno de " + currentPlayer +"\n");
                          //escogemos que queremos mover 
-                         System.out.println("Que deseas mover?\nPeon: P || Muro: M");
+                         System.out.println("Que deseas mover?\n moverse: Mov || Colocar Muro: M");
                          accion = in.nextLine();
 
 
-                         /* 
+                         
                          if (accion.equalsIgnoreCase("PICOTA")) {
                               System.out.println("FELICIDADES GANASTE EL JUEGO!! Y nosotros ganamos una A+");
                               break;
                               
                               
                          } 
-                         */
+                         
                          
                          
                     //CONDICIONALES DE ACCION
@@ -98,13 +98,19 @@ public class Quoridor
                                         moved = false;
                                         
                                    } else {
-                                        System.out.println("ENTER: (x1,y1)");
+                                        System.out.println("ENTER: (x1,y1)(x2,y2)");
                                         for (int j = 0; j < 2; j++) {
                                              System.out.print("->");
                                              wall_position[j] = in.nextInt();
                                         }
                                         currentPlayer.x1_wall = wall_position[0];
                                         currentPlayer.y1_wall = wall_position[1];
+                                        currentPlayer.x2_wall = wall_position[0];
+                                        currentPlayer.y2_wall = wall_position[1]-1;
+                                        if (p1.getX() == p1.getwallX1() && p1.getY() == p1.getwallY1()) {
+                                             moved = false;
+                         
+                                        }
 
                                         if(currentPlayer.n == 1){
                                              //currentPlayer.P1wall_history[wcount_history] =  currentPlayer.x1_wall;
@@ -127,7 +133,7 @@ public class Quoridor
                                    
                          }    
                                    
-                         if (accion.equalsIgnoreCase("P")) { 
+                         if (accion.equalsIgnoreCase("mov")) { 
                                    System.out.println("ENTER:|ARRIBA|+|ABAJO|+|IZQUIERDA|+|DERECHA|");
                                    input = in.nextLine();
                                    moved = currentPlayer.moverPeon(input);

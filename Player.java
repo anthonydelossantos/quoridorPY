@@ -1,6 +1,6 @@
 public class Player
 {
-     public int x, y, n, x1_wall, y1_wall, walls;
+     public int x, y, n, x1_wall, y1_wall, walls,x2_wall, y2_wall;
      int[] P1wall_history = new int[20]; // historial de jugador 1 (muros)
      int[] P2wall_history = new int[20]; // historial de jugador 2 (muros)
      
@@ -31,12 +31,12 @@ public class Player
           name = new String("Player " + Integer.toString(n));
      }
      
-     public Player(int x_pos, int y_pos, int nb, String nm,int walls)
+     public Player(int x_pos, int y_pos, int nb, String nm,int walls_count)
      {
           x = x_pos;
           y = y_pos;
           n = nb;
-          walls = 10;
+          walls = walls_count;
           name = nm;
      }
      
@@ -105,7 +105,7 @@ public class Player
      {
           return y1_wall;
      }
-     /* 
+     
      public int getwallX2()
      {
           return x2_wall;
@@ -115,12 +115,11 @@ public class Player
      {
           return y2_wall;
      }
-     */
+     
      
      
      public String toString()
      {
           return name;
-     }
-     
+     }   
 }

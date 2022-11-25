@@ -19,19 +19,32 @@ public class Board extends JComponent
                     if(p1.getX() == j && p1.getY() == i)
                     {
                          board += "o.";
+                        
                     }
                     else if(p2.getX() == j && p2.getY() == i)
                     {
-                         board += "x.";
+                         board += "@.";
+                         
                     }
                     else if(p1.getwallX1() == j && p1.getwallY1() == i && p1.x1_wall > 0)  
                     {
                          board += "|";
+                         
+                    }
+                    else if(p1.getwallX2() == j && p1.getwallY2() == i && p1.x2_wall > 0)  
+                    {
+                         board += " |";
+                         
                     }
                    
                    else if(p2.getwallX1() == j && p1.getwallY1() == i && p2.x1_wall > 0)
                     {
                          board += " |";
+                    }
+                    else if(p2.getwallX2() == j && p2.getwallY2() == i && p2.x2_wall > 0)  
+                    {
+                         board += " |";
+                         
                     }
                    
                     
@@ -52,17 +65,22 @@ public class Board extends JComponent
           {               
                board += i+" .";
                
-               for(int j = 0; j < 9; j++)
+               for(int j = 0; j < 8; j++)
                {
-
+                    if (p1.getX() == p1.getwallX1() && p1.getY() == p1.getwallY1()) {
+                         
+                         
+                    }
                     // si el jugador se encuentra en una posicion x ,y este dibuja su respectivo simbolo
                     if(p1.getX() == j && p1.getY() == i)
                     {
                          board += "o.";
+                        
                     }
                     else if(p2.getX() == j && p2.getY() == i)
                     {
-                         board += "x.";
+                         board += "@.";
+                         
                     }
 
                     // si el valor de la posicion de un muro de cierto jugador estaa, este es dibujado
@@ -70,10 +88,21 @@ public class Board extends JComponent
                     {
                          board += " |";
                     }
+                    else if(p1.getwallX2() == j && p1.getwallY2() == i && p1.x2_wall > 0)  
+                    {
+                         board += " |";
+                         
+                    }
+                    
                    
                     else if(p2.getwallX1() == j && p2.getwallY1() == i && p2.x1_wall > 0)
                     {
                          board += " |";
+                    }
+                    else if(p2.getwallX2() == j && p2.getwallY2() == i && p2.x2_wall > 0)  
+                    {
+                         board += " |";
+                         
                     }
                     else
                          board += " .";
@@ -88,6 +117,6 @@ public class Board extends JComponent
      
      public String toString()
      {
-          return new String("  0 1 2 3 4 5 6 7 8 \n" + board);
+          return new String("  0 1 2 3 4 5 6 7 8  \n" + board);
      }
 }//Board class
