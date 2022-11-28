@@ -29,43 +29,32 @@ public class Game
           while(!var.isGameOver)
                 { 
                     try {
-                         
-                   
                    in.nextLine();
                     //GANADORES
-
                     if (var.pb.getY() == 0) {
-                         System.out.println("FELICIDADES!! "+var.pb.name+" GANASTE!!");
-                         var.getHistory(var.history_pb, var.history_pr);
+                        var.getWiner();
                          break;
 
                          
                     } else if (var.pr.getY() == 8) {
-                         System.out.println("FELICIDADES!! "+var.pr.name+" GANASTE!!");
-                         var.getHistory(var.history_pb, var.history_pr);
+                        var.getWiner();
                          break;
                          
                     } 
 
-                    //FIN DE GANADORES
-
-
-
-
                     //IMPRIME EL  TABLERO
-                         System.out.println(Qboard);
+                    System.out.println(Qboard);
 
                     //ESTABLECE EL JUGADOR ACTUAL
-                         var.currentPlayer = var.players[var.count];
-                         System.out.println("Turno de " + var.currentPlayer +"\n");
-                         System.out.println("Posicion actual del " + var.currentPlayer +" -> "+ "x:"+var.currentPlayer.x+" y:"+var.currentPlayer.y);
-                         //escogemos que queremos mover 
-                         System.out.println("Que deseas mover?\n moverse: Mov || Colocar Muro: M");
-                         var.accion = in.nextLine();
-                         
-                         
-                         
+                    var.currentPlayer = var.players[var.count];
+                    System.out.println("Turno de " + var.currentPlayer +"\n");
+                    System.out.println("Posicion actual del " + var.currentPlayer +" -> "+ "x:"+var.currentPlayer.x+" y:"+var.currentPlayer.y);
+                    //escogemos que queremos mover 
+                    System.out.println("Que deseas mover?\n moverse: Mov || Colocar Muro: M");
+                    var.accion = in.nextLine();
+                              
                     //CONDICIONALES DE ACCION
+                    //muro
                     if (var.accion.equalsIgnoreCase("M")) {
                          String position;
                          if (var.currentPlayer.walls == 0) {
@@ -85,10 +74,7 @@ public class Game
                          } 
                          
                     }
-
-
-
-
+                    //peon
                     if (var.accion.equalsIgnoreCase("mov")) {
                               var.moverPeon();
 

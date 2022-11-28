@@ -110,10 +110,16 @@ public class variables {
 
     public void moverPeon() {
          System.out.println("ENTER:|ARRIBA|+|ABAJO|+|IZQUIERDA|+|DERECHA|");
-          input = in.nextLine();
-          moved = currentPlayer.moverPeon(input);
-          
-     }
+         input = in.nextLine();
+         moved = currentPlayer.moverPeon(input);
+
+    }
+     
+    public void getWiner() {
+          System.out.println("FELICIDADES!! "+pb.name+" GANASTE!!");
+          getHistory(history_pb, history_pr);
+     
+    }
 
 }
 
