@@ -90,8 +90,9 @@ public class Board
                          
                   //  }
                   // si el valor de la posicion de un muro de cierto jugador estaa, este es dibujado
+                  
 
- // vertical
+                     // vertical
                     if (pb.getVwallX1() == j && pb.getVwallY1() == i && pb.x1v_wall > 0) {
                          board += " | ";
                     } else if (pb.getVwallX2() == j && pb.getVwallY2() == i && pb.x2v_wall > 0) {

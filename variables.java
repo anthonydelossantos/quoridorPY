@@ -54,10 +54,19 @@ public class variables {
          currentPlayer.x2v_wall = wall_position[0];
          currentPlayer.y2v_wall = wall_position[1] - 1;
 
-         if (pb.getX() == pb.getVwallX1() && pb.getY() == pb.getVwallY1()) {
-              moved = false;
+         if (currentPlayer.x1v_wall == currentPlayer.x1h_wall && currentPlayer.y1v_wall == currentPlayer.x2h_wall) {
+              System.out.println("ERROR: La posicion ya esta ocupada por otro muro.");
+               System.out.println("ENTER: (x1,y1)");
+               for (int j = 0; j < 2; j++) {
+                    System.out.print("->");
+                    wall_position[j] = in.nextInt();
+                }
 
-         }
+               currentPlayer.x1v_wall = wall_position[0];
+               currentPlayer.y1v_wall = wall_position[1];
+               currentPlayer.x2v_wall = wall_position[0];
+               currentPlayer.y2v_wall = wall_position[1] - 1;                        
+          }
 
          if (currentPlayer.n == 1) {
               currentPlayer.P1wall_history[wcount_history] = currentPlayer.x1v_wall;
@@ -86,6 +95,19 @@ public class variables {
          currentPlayer.x2h_wall = wall_position[1];
          //currentPlayer.x2v_wall = wall_position[0];
          //currentPlayer.y2v_wall = wall_position[1]-1;
+         if (currentPlayer.x1v_wall == currentPlayer.x1h_wall && currentPlayer.y1v_wall == currentPlayer.x2h_wall) {
+               System.out.println("ERROR: La posicion ya esta ocupada por otro muro.");
+               System.out.println("ENTER: (x1,x2)");
+               for (int j = 0; j < 2; j++) {
+                    System.out.print("->");
+                    wall_position[j] = in.nextInt();
+               }
+
+               currentPlayer.x1h_wall = wall_position[0];
+               currentPlayer.x2h_wall = wall_position[1];
+               //currentPlayer.x2v_wall = wall_position[0];
+               //currentPlayer.y2v_wall = wall_position[1]-1;
+          }
 
          if (pb.getX() == pb.getHwallX1() && pb.getX() == pb.getHwallX2()) {
               moved = false;

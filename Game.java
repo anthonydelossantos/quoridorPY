@@ -20,12 +20,9 @@ public class Game
           Scanner in = new Scanner(System.in);
           var.players[0] =var.pb;
           var.players[1]=var.pr;
-          
           //CREAMOS OBJETO Qboard Y LE PASAMOS LOS JUGADORES A LA CLASE BOARD, ESTOS JUGADORES CON SUS POSICIONES
           Board Qboard = new Board(var.pb, var.pr);         
           System.out.println("\nBIENVENIDO A QUORIDOR\n");
-         
-          
           while(!var.isGameOver)
                 { 
                     try {
@@ -62,19 +59,24 @@ public class Game
                               var.moved = false;
 
                          }
-                         System.out.println("a) Vertical\nb) Horizontal?");
+                         System.out.println("v) Vertical\nh) Horizontal?");
                          System.out.print("-> ");
                          position = in.nextLine();
-                         if (position.equalsIgnoreCase("a")) {
+                         //vertical
+                         if (position.equalsIgnoreCase("v")) {
                               var.verticalWalls();
                               
-                         } else if (position.equalsIgnoreCase("b")) {
+
+                         }
+                         //horizontall
+                         else if (position.equalsIgnoreCase("h")) {
                               var.horizontalWalls();
                               
                          } 
                          
                     }
                     //peon
+
                     if (var.accion.equalsIgnoreCase("mov")) {
                               var.moverPeon();
 
