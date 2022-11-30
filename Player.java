@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /*
  * ANTHONY DE LOS SANTOS
  * LUIS SERGENT
@@ -8,8 +10,10 @@
 public class Player
 {
      public int x, y, n, x1v_wall, y1v_wall, x2v_wall, y2v_wall, walls, x1h_wall, x2h_wall;
-     int[] P1wall_history = new int[20]; // historial de jugador 1 (muros)
-     int[] P2wall_history = new int[20]; // historial de jugador 2 (muros)
+     ArrayList <Integer> P1wallV_history = new ArrayList<Integer>(); // historial de jugador 1 (muros)
+     ArrayList<Integer> P2wallV_history = new ArrayList<Integer>(); // historial de jugador 2 (muros)
+      ArrayList <Integer> P1wallH_history = new ArrayList<Integer>(); // historial de jugador 1 (muros)
+      ArrayList <Integer>  P2wallH_history = new ArrayList<Integer>(); // historial de jugador 2 (muros)
      
      public String name;
      

@@ -49,11 +49,16 @@ public class Game
                     //escogemos que queremos mover 
                     System.out.println("Que deseas mover?\n moverse: Mov || Colocar Muro: M");
                     var.accion = in.nextLine();
+                    while (!var.accion.equalsIgnoreCase("Mov") && !var.accion.equalsIgnoreCase("M")) {
+                         System.out.print("ERROR: Introduce Mov o M ->");
+                         var.accion = in.nextLine();
+                         
+                    }
                               
                     //CONDICIONALES DE ACCION
                     //muro
                     if (var.accion.equalsIgnoreCase("M")) {
-                         String position;
+                         
                          if (var.currentPlayer.walls == 0) {
                               System.out.print("Ya utilizaste todos tus muros.");
                               var.moved = false;
@@ -61,15 +66,22 @@ public class Game
                          }
                          System.out.println("v) Vertical\nh) Horizontal?");
                          System.out.print("-> ");
-                         position = in.nextLine();
+                         var.position = in.nextLine();
+                         while (!var.position.equalsIgnoreCase("v") && !var.position.equalsIgnoreCase("h")) {
+                              System.out.println("Error! Introduce un valor correcto.");
+                              System.out.println("v) Vertical\nh) Horizontal?");
+                              System.out.print("-> ");
+                              var.position = in.nextLine();
+                              
+                         }
                          //vertical
-                         if (position.equalsIgnoreCase("v")) {
+                         if (var.position.equalsIgnoreCase("v")) {
                               var.verticalWalls();
                               
 
                          }
                          //horizontall
-                         else if (position.equalsIgnoreCase("h")) {
+                         else if (var.position.equalsIgnoreCase("h")) {
                               var.horizontalWalls();
                               
                          } 
@@ -83,7 +95,7 @@ public class Game
                               //para salir del juego
                               if (var.input.equalsIgnoreCase("EXIT") || var.input.equalsIgnoreCase("E")) {
                                    System.out.println("PARTIDA INTERRUMPIDA\n");
-                                   var.getHistory(var.history_pb, var.history_pr);
+                                   var.getHistory(var.history_pb,var.history_pr, var.currentPlayer.P1wallV_history,var.currentPlayer.P1wallH_history,var.currentPlayer.P2wallV_history,var.currentPlayer.P2wallH_history);
                                    break;
                               }
                               while (!var.moved) {
@@ -97,18 +109,11 @@ public class Game
                     //para salir del juego
                          if(var.accion.equalsIgnoreCase("EXIT") || var.accion.equalsIgnoreCase("E")){  
                               System.out.println("PARTIDA INTERRUMPIDA\n"); 
-                             var.getHistory(var.history_pb,var.history_pr);
+                              var.getHistory(var.history_pb,var.history_pr, var.currentPlayer.P1wallV_history,var.currentPlayer.P1wallH_history,var.currentPlayer.P2wallV_history,var.currentPlayer.P2wallH_history);
                               break;
                          }
 
-                         // SI NO RECONOCE ALGUNA ACCION
-                         //error aqui se salta el jugador
-                         else if(!var.accion.equalsIgnoreCase("Mov") && !var.accion.equalsIgnoreCase("M") ){
-                                   System.out.print("ERROR: Introduce Mov o M ->");
-                                   var.accion = in.nextLine();
-                                   var.moved = false;
-
-                              }
+               
                     //FIN DE CONDICIONALES DE ACCION
                          
 
@@ -141,8 +146,8 @@ public class Game
                }   
                catch (Exception e) {
                   //error aqui se escriben varios historiales
-                    //System.out.println("PARTIDA INTERRUMPIDA");
-                  //var.getHistory(var.history_pb, var.history_pr);
+                    System.out.println("PARTIDA INTERRUMPIDA");
+                   var.getHistory(var.history_pb,var.history_pr, var.currentPlayer.P1wallV_history,var.currentPlayer.P1wallH_history,var.currentPlayer.P2wallV_history,var.currentPlayer.P2wallH_history);
                }      
           } 
           
