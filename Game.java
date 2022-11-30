@@ -126,6 +126,7 @@ public class Game
                          
                      //informacion del jugador 
                          var.currentplayer_history = var.currentPlayer.name+" x:"+var.currentPlayer.getX()+" y:"+var.currentPlayer.getY();
+                        
                     //si el identificador de mi jugador actual es 1 le sumo uno mas 
                     //para que sea turno de dos , pero antes guardo su posicion actual en el array 
                          if (var.players[var.count].n == 1) {

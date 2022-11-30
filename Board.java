@@ -18,31 +18,32 @@ public class Board
           {               
                board += "\t"+i+" .";
                
-               for(int j = 0; j < 9; j++)
+               for(int j = 0; j < 8; j++)
                {
 
-                    // if(pb.getX() == j && pb.getY() == i)
-                    // {
+                    if(pb.getX() == j && pb.getY() == i)
+                    {
 
-                    //  board += "o";
+                         board += "o";
+                         
 
-                    //  }
-                    // else if(pr.getX() == j && pr.getY() == i)
-                    //   {
-                    //      board += "x";
+                      }
+                     else if(pr.getX() == j && pr.getY() == i)
+                       {
+                          board += "x";
 
-                    //  }
+                      }
                     // vertical
                     if (pb.getVwallX1() == j && pb.getVwallY1() == i && pb.x1v_wall > 0) {
-                         board += " | ";
+                         board += "  | ";
                     } else if (pb.getVwallX2() == j && pb.getVwallY2() == i && pb.x2v_wall > 0) {
-                         board += " | ";
+                         board += "  | ";
 
                     }
                     else if (pr.getVwallX1() == j && pr.getVwallY1() == i && pr.x1v_wall > 0) {
-                         board += " | ";
+                         board += "  | ";
                     } else if (pr.getVwallX2() == j && pr.getVwallY2() == i && pr.x2v_wall > 0) {
-                         board += " | ";
+                         board += "  | ";
 
                     }
                     //-----------------------------------------------------------------------
@@ -78,31 +79,31 @@ public class Board
                {
                     
                     // si el jugador se encuentra en una posicion x ,y este dibuja su respectivo simbolo
-                    // if(pb.getX() == j && pb.getY() == i)
-                   // {
+                    if(pb.getX() == j && pb.getY() == i)
+                    {
                         
-                       //  board += "o";
+                         board += "o";
                         
-                  //  }
-                   // else if(pr.getX() == j && pr.getY() == i)
-                 //   {
-                   //      board += "x";
+                    }
+                    else if(pr.getX() == j && pr.getY() == i)
+                    {
+                         board += "x";
                          
-                  //  }
+                    }
                   // si el valor de la posicion de un muro de cierto jugador estaa, este es dibujado
                   
 
                      // vertical
                     if (pb.getVwallX1() == j && pb.getVwallY1() == i && pb.x1v_wall > 0) {
-                         board += " | ";
+                         board += "  | ";
                     } else if (pb.getVwallX2() == j && pb.getVwallY2() == i && pb.x2v_wall > 0) {
-                         board += " | ";
+                         board += "  | ";
 
                     }
                     else if (pr.getVwallX1() == j && pr.getVwallY1() == i && pr.x1v_wall > 0) {
-                         board += " | ";
+                         board += "  | ";
                     } else if (pr.getVwallX2() == j && pr.getVwallY2() == i && pr.x2v_wall > 0) {
-                         board += " | ";
+                         board += "  | ";
 
                     }
                     //-----------------------------------------------------------------------

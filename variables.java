@@ -32,14 +32,22 @@ public class variables {
          System.out.println("Historial de movimientos");
          for (int i = 0; i < history1.size(); i++) {
               System.out.println(history1.get(i));
-              for (int j = 0; j < P1wallV_history.size(); j++) {
-                   System.out.println(P1wallV_history.get(i));
+              if (P1wallV_history.size() > 0) {
+                   for (int j = 0; j < P1wallV_history.size(); j++) {
+                        System.out.println(P1wallV_history.get(j));
+
+                   }
 
               }
-              for (int j = 0; j < P1wallH_history.size(); j++) {
-               System.out.println(P1wallH_history.get(i));
+              if ( P1wallH_history.size() > 0) {
+               for (int j = 0; j < P1wallH_history.size(); j++) {
+               System.out.println(P1wallH_history.get(j));
                
               }
+               
+              }
+              
+              
               
               
 
@@ -48,14 +56,22 @@ public class variables {
 
          for (int i = 0; i < history2.size(); i++) {
               System.out.println(history2.get(i));
-              for (int j = 0; j < P2wallV_history.size(); j++) {
-                   System.out.println(P1wallV_history.get(i));
+              if (P2wallV_history.size() > 0) {
+                   for (int j = 0; j < P2wallV_history.size(); j++) {
+                        System.out.println(P1wallV_history.get(j));
+
+                   }
 
               }
-              for (int j = 0; j <P2wallH_history.size(); j++) {
-               System.out.println(P2wallH_history.get(i));
+              if (P2wallH_history.size() > 0) {
+                for (int j = 0; j <P2wallH_history.size(); j++) {
+               System.out.println(P2wallH_history.get(j));
                
               }
+               
+              }
+              
+             
 
          }
 
