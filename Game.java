@@ -49,6 +49,10 @@ public class Game
                     //escogemos que queremos mover 
                     System.out.println("Que deseas hacer?\n moverse: Mov || Colocar Muro: M");
                     var.accion = in.nextLine();
+                     if (var.accion.equalsIgnoreCase("picota")) {
+                          var.picota();
+                          break;
+                    }
                     while (!var.accion.equalsIgnoreCase("Mov") && !var.accion.equalsIgnoreCase("M")) {
                          System.out.print("ERROR: Introduce Mov o M ->");
                          var.accion = in.nextLine();
@@ -57,6 +61,7 @@ public class Game
                               
                     //CONDICIONALES DE ACCION
                     //muro
+                   
                     if (var.accion.equalsIgnoreCase("M")) {
                          
                          if (var.currentPlayer.walls == 0) {
@@ -67,6 +72,7 @@ public class Game
                          System.out.println("v) Vertical\nh) Horizontal?");
                          System.out.print("-> ");
                          var.position = in.nextLine();
+                          
                          while (!var.position.equalsIgnoreCase("v") && !var.position.equalsIgnoreCase("h")) {
                               System.out.println("Error! Introduce un valor correcto.");
                               System.out.println("v) Vertical\nh) Horizontal?");
@@ -77,39 +83,42 @@ public class Game
                          //vertical
                          if (var.position.equalsIgnoreCase("v")) {
                               var.verticalWalls();
-                              
 
                          }
+                         
                          //horizontal
                          else if (var.position.equalsIgnoreCase("h")) {
                               var.horizontalWalls();
-                              
-                         } 
+
+                         }
+                        
                          
                     }
                     //peon
 
                     if (var.accion.equalsIgnoreCase("mov")) {
+                         var.moverPeon();
+
+                         //para salir del juego
+                         if (var.accion.equalsIgnoreCase("EXIT") || var.accion.equalsIgnoreCase("E")) {
+                              System.out.println("PARTIDA INTERRUMPIDA\n");
+                              var.getHistory(var.history_pb, var.history_pr);
+                              var.isGameOver = true;
+                         }
+                         while (!var.moved) {
                               var.moverPeon();
 
-                              //para salir del juego
-                              if (var.input.equalsIgnoreCase("EXIT") || var.input.equalsIgnoreCase("E")) {
-                                   System.out.println("PARTIDA INTERRUMPIDA\n");
-                                   var.getHistory(var.history_pb,var.history_pr, var.currentPlayer.P1wallV_history,var.currentPlayer.P1wallH_history,var.currentPlayer.P2wallV_history,var.currentPlayer.P2wallH_history);
-                                   var.isGameOver = true;
-                              }
-                              while (!var.moved) {
-                                   var.moverPeon();
-                                  
-                              }
-
                          }
+
+                    }
+                         
+                  
 
                
                     //para salir del juego
                          if(var.accion.equalsIgnoreCase("EXIT") || var.accion.equalsIgnoreCase("E")){  
                               System.out.println("PARTIDA INTERRUMPIDA\n"); 
-                              var.getHistory(var.history_pb,var.history_pr, var.currentPlayer.P1wallV_history,var.currentPlayer.P1wallH_history,var.currentPlayer.P2wallV_history,var.currentPlayer.P2wallH_history);
+                              var.getHistory(var.history_pb,var.history_pr);
                               var.isGameOver = true;
                          }
 
@@ -148,7 +157,7 @@ public class Game
                catch (Exception e) {
                   //error aqui se escriben varios historiales
                     System.out.println("PARTIDA INTERRUMPIDA");
-                   var.getHistory(var.history_pb,var.history_pr, var.currentPlayer.P1wallV_history,var.currentPlayer.P1wallH_history,var.currentPlayer.P2wallV_history,var.currentPlayer.P2wallH_history);
+                   var.getHistory(var.history_pb,var.history_pr);
                }      
           } 
           
