@@ -10,11 +10,10 @@ import java.util.*;
 
 public class variables {
      Scanner in = new Scanner(System.in);
-     String direction = "";
      String currentplayer_history;
      boolean isGameOver = false;
      String position;
-     String input = new String();
+     String input = "";
      int count = 0;
      int wcount_history = 0;
      boolean moved = true;
@@ -32,49 +31,45 @@ public class variables {
          System.out.println("Historial de movimientos");
          for (int i = 0; i < history1.size(); i++) {
               System.out.println(history1.get(i));
-              if (P1wallV_history.size() > 0) {
+              }
+         /* if (P1wallV_history.size() > 0) {
                    for (int j = 0; j < P1wallV_history.size(); j++) {
                         System.out.println(P1wallV_history.get(j));
 
-                   }
-
-              }
-              if ( P1wallH_history.size() > 0) {
+                    }
+          }
+          if ( P1wallH_history.size() > 0) {
                for (int j = 0; j < P1wallH_history.size(); j++) {
                System.out.println(P1wallH_history.get(j));
                
-              }
+                }
                
               }
-              
-              
-              
-              
-
-         }
+              */
+     
          System.out.println("-----------------------------------------------------");
 
          for (int i = 0; i < history2.size(); i++) {
               System.out.println(history2.get(i));
-              if (P2wallV_history.size() > 0) {
-                   for (int j = 0; j < P2wallV_history.size(); j++) {
-                        System.out.println(P1wallV_history.get(j));
-
-                   }
-
-              }
-              if (P2wallH_history.size() > 0) {
-                for (int j = 0; j <P2wallH_history.size(); j++) {
-               System.out.println(P2wallH_history.get(j));
-               
-              }
-               
-              }
-              
-             
+    
 
          }
+         if (P2wallV_history.size() > 0) {
+              for (int j = 0; j < P2wallV_history.size(); j++) {
+                   System.out.println(P1wallV_history.get(j));
 
+              }
+
+         }
+              
+         if (P2wallH_history.size() > 0) {
+              for (int j = 0; j < P2wallH_history.size(); j++) {
+                   System.out.println(P2wallH_history.get(j));
+
+              }
+
+         }
+              
     }
 
     public void verticalWalls() {
@@ -82,12 +77,18 @@ public class variables {
          for (int j = 0; j < 2; j++) {
               System.out.print("->");
               wall_position[j] = in.nextInt();
+              while (!(wall_position[j] < 9 && wall_position[j] > 0)) {
+                    System.out.println("Error! debes introducir un numero dentro del rango que ves en tablero.");
+                    System.out.print("->");
+                    wall_position[j] = in.nextInt();
+               
+                    }
          }
 
-         currentPlayer.x1v_wall = wall_position[0];
-         currentPlayer.y1v_wall = wall_position[1];
-         currentPlayer.x2v_wall = wall_position[0];
-         currentPlayer.y2v_wall = wall_position[1] - 1;
+         currentPlayer.x1v_wall = wall_position[0]; 
+            currentPlayer.y1v_wall = wall_position[1]; 
+            currentPlayer.x2v_wall = wall_position[0]; 
+            currentPlayer.y2v_wall = wall_position[1]+1;
 
          if (currentPlayer.x1v_wall == currentPlayer.x1h_wall && currentPlayer.y1v_wall == currentPlayer.x2h_wall) {
               System.out.println("ERROR: La posicion ya esta ocupada por otro muro.");
@@ -95,7 +96,7 @@ public class variables {
               for (int j = 0; j < 2; j++) {
                    System.out.print("->");
                    wall_position[j] = in.nextInt();
-                    while (!(wall_position[j] < 9 && wall_position[j] >= 0)) {
+                   while (!(wall_position[j] < 9 && wall_position[j] > 0)) {
                     System.out.println("Error! debes introducir un numero dentro del rango que ves en tablero.");
                     System.out.print("->");
                     wall_position[j] = in.nextInt();
@@ -103,10 +104,10 @@ public class variables {
                     }
               }
 
-              currentPlayer.x1v_wall = wall_position[0];
-              currentPlayer.y1v_wall = wall_position[1];
-              currentPlayer.x2v_wall = wall_position[0];
-              currentPlayer.y2v_wall = wall_position[1] - 1;
+             currentPlayer.x1v_wall = wall_position[0]; 
+            currentPlayer.y1v_wall = wall_position[1]; 
+            currentPlayer.x2v_wall = wall_position[0]; 
+            currentPlayer.y2v_wall = wall_position[1]+1;
          }
 
          if (currentPlayer.n == 1) {
@@ -140,7 +141,7 @@ public class variables {
               currentPlayer.x1v_wall = wall_position[0];
               currentPlayer.y1v_wall = wall_position[1];
               currentPlayer.x2v_wall = wall_position[0];
-              currentPlayer.y2v_wall = wall_position[1] - 1;
+              currentPlayer.y2v_wall = wall_position[1] -1;
 
          }
           
@@ -162,15 +163,25 @@ public class variables {
               System.out.print("->");
               wall_position[j] = in.nextInt();
               while (!(wall_position[j] < 9 && wall_position[j] >= 0)) {
-               System.out.println("Error! debes introducir un numero dentro del rango que ves en tablero.");
-               System.out.print("->");
-               wall_position[j] = in.nextInt();
-               
+                   System.out.println("Error! debes introducir un numero dentro del rango que ves en tablero.");
+                   System.out.print("->");
+                   wall_position[j] = in.nextInt();
+
               }
          }
+         if (wall_position[0] == 1) {
+          currentPlayer.x1h_wall = wall_position[0];
+          currentPlayer.x2h_wall = wall_position[1];
+          currentPlayer.x3h_wall = wall_position[0];
+          currentPlayer.x4h_wall = wall_position[1]+1;
+          
+          
+         }
 
-         currentPlayer.x1h_wall = wall_position[0];
+         currentPlayer.x1h_wall = wall_position[0]-1;
          currentPlayer.x2h_wall = wall_position[1];
+         currentPlayer.x3h_wall = wall_position[0];
+         currentPlayer.x4h_wall = wall_position[1];
          if (currentPlayer.x1v_wall == currentPlayer.x1h_wall && currentPlayer.y1v_wall == currentPlayer.x2h_wall) {
                System.out.println("ERROR: La posicion ya esta ocupada por otro muro.");
                System.out.println("ENTER: (x1,x2)");
@@ -178,9 +189,24 @@ public class variables {
                     System.out.print("->");
                     wall_position[j] = in.nextInt();
                }
+               if (wall_position[0] == 6) {
+                    if (wall_position[1] == 1 || wall_position[1] == 2 || wall_position[1] == 5
+                              || wall_position[1] == 7) {
+                         currentPlayer.x1h_wall = wall_position[0] + 1;
+                         currentPlayer.x2h_wall = wall_position[1];
+                         currentPlayer.x3h_wall = wall_position[0];
+                         currentPlayer.x4h_wall = wall_position[1];
 
-               currentPlayer.x1h_wall = wall_position[0];
-               currentPlayer.x2h_wall = wall_position[1];
+                    }
+                    currentPlayer.x1h_wall = wall_position[0] + 1;
+                    currentPlayer.x2h_wall = wall_position[1];
+                    currentPlayer.x3h_wall = wall_position[0] - 2;
+                    currentPlayer.x4h_wall = wall_position[1];
+
+               }
+               
+
+              
           }
 
          if (currentPlayer.n == 1) {

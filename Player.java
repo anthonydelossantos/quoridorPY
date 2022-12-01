@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class Player
 {
-     public int x, y, n, x1v_wall, y1v_wall, x2v_wall, y2v_wall, walls, x1h_wall, x2h_wall;
+     public int x, y, n, x1v_wall, y1v_wall, x2v_wall, y2v_wall, walls, x1h_wall, x2h_wall,x3h_wall,x4h_wall;
      ArrayList <Integer> P1wallV_history = new ArrayList<Integer>(); // historial de jugador 1 (muros)
      ArrayList<Integer> P2wallV_history = new ArrayList<Integer>(); // historial de jugador 2 (muros)
       ArrayList <Integer> P1wallH_history = new ArrayList<Integer>(); // historial de jugador 1 (muros)
@@ -63,12 +63,24 @@ public class Player
                     y++;
                     wasMoved = false;
                }
+               if((y == getHwallX2() && x == getHwallX1()) || (x == getHwallX3() && y == getHwallX4()))
+               {
+                    System.out.println("nope");
+                    y++;
+                    wasMoved = false;
+               }
           }
           else if(dir.equalsIgnoreCase("ABAJO") || dir.equalsIgnoreCase("AB") )
           {
                y++;
                if (y > 8)
                {
+                    y--;
+                    wasMoved = false;
+               }
+               if((y == getHwallX2() && x == getHwallX1()) || (x == getHwallX3() && y == getHwallX4()))
+               {
+                    System.out.println("nope");
                     y--;
                     wasMoved = false;
                }
@@ -81,12 +93,24 @@ public class Player
                     x++;
                     wasMoved = false;
                }
+               if((x == getVwallX1() && y == getVwallY1()) || (y == getVwallY2() && x == getVwallX2()))
+               {
+                    System.out.println("nope");
+                    x++;
+                    wasMoved = false;
+               }
           }
           else if(dir.equalsIgnoreCase("DERECHA")  || dir.equalsIgnoreCase("D"))
           {
                x++;
                if (x > 8)
                {
+                    x--;
+                    wasMoved = false;
+               }
+               if((x == getVwallX1() && y == getVwallY1()) || (y == getVwallY2() && x == getVwallX2()))
+               {
+                    System.out.println("nope");
                     x--;
                     wasMoved = false;
                }
@@ -132,6 +156,14 @@ public class Player
      public int getHwallX2()
      {
           return x2h_wall;
+     }
+     public int getHwallX3()
+     {
+          return x3h_wall;
+     }
+     public int getHwallX4()
+     {
+          return x4h_wall;
      }
     
      

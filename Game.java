@@ -30,12 +30,12 @@ public class Game
                     //GANADORES
                     if (var.pb.getY() == 0) {
                         var.getWiner();
-                         break;
+                        var.isGameOver = true;
 
                          
                     } else if (var.pr.getY() == 8) {
-                        var.getWiner();
-                         break;
+                         var.getWiner();
+                        var.isGameOver = true;
                          
                     } 
 
@@ -47,7 +47,7 @@ public class Game
                     System.out.println("Turno de " + var.currentPlayer +"\n");
                     System.out.println("Posicion actual del " + var.currentPlayer +" -> "+ "x:"+var.currentPlayer.x+" y:"+var.currentPlayer.y);
                     //escogemos que queremos mover 
-                    System.out.println("Que deseas mover?\n moverse: Mov || Colocar Muro: M");
+                    System.out.println("Que deseas hacer?\n moverse: Mov || Colocar Muro: M");
                     var.accion = in.nextLine();
                     while (!var.accion.equalsIgnoreCase("Mov") && !var.accion.equalsIgnoreCase("M")) {
                          System.out.print("ERROR: Introduce Mov o M ->");
@@ -80,7 +80,7 @@ public class Game
                               
 
                          }
-                         //horizontall
+                         //horizontal
                          else if (var.position.equalsIgnoreCase("h")) {
                               var.horizontalWalls();
                               
@@ -96,7 +96,7 @@ public class Game
                               if (var.input.equalsIgnoreCase("EXIT") || var.input.equalsIgnoreCase("E")) {
                                    System.out.println("PARTIDA INTERRUMPIDA\n");
                                    var.getHistory(var.history_pb,var.history_pr, var.currentPlayer.P1wallV_history,var.currentPlayer.P1wallH_history,var.currentPlayer.P2wallV_history,var.currentPlayer.P2wallH_history);
-                                   break;
+                                   var.isGameOver = true;
                               }
                               while (!var.moved) {
                                    var.moverPeon();
@@ -110,7 +110,7 @@ public class Game
                          if(var.accion.equalsIgnoreCase("EXIT") || var.accion.equalsIgnoreCase("E")){  
                               System.out.println("PARTIDA INTERRUMPIDA\n"); 
                               var.getHistory(var.history_pb,var.history_pr, var.currentPlayer.P1wallV_history,var.currentPlayer.P1wallH_history,var.currentPlayer.P2wallV_history,var.currentPlayer.P2wallH_history);
-                              break;
+                              var.isGameOver = true;
                          }
 
                
